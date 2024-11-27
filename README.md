@@ -2,22 +2,18 @@
 
 ## Introduction
 
-In this assignment, you will extend your previous NGINX setup by configuring two new servers and a load balancer. You will create two Digital Ocean droplets running Arch Linux, set up a load balancer to distribute traffic, clone updated starter code, and update the server configuration to include a file server. This will ensure that your web application is highly available and can serve documents from both servers.
+In this assignment, you will extend your previous NGINX setup by configuring two new servers and a load balancer. You will create two Digital Ocean droplets running Arch Linux, set up a load balancer to distribute traffic, clone updated starter code, and update the server configuration to include a file server. This will ensure that your web application is highly available and can serve documents from both servers. The list below is all the tasks to be completed during this assignment.
 
-## Task 1: Create Digital Ocean Droplets
-Create two Arch Linux droplets tagged "web".
+- Create two Arch Linux droplets tagged "web".
 
-## Task 2: Setup Load Balancer
-Create a public-facing load balancer to distribute traffic between the two servers.
-- **Region**: SFO3
-- **VPC**: Default
-- **Tag**: "web"
+- Create a public-facing load balancer to distribute traffic between the two servers.
+    - **Region**: SFO3
+    - **VPC**: Default
+    - **Tag**: "web"
 
-## Task 3: Clone Updated Starter Code
-Clone the updated starter code repository containing a script to generate an HTML document.
+- Clone the updated starter code repository containing a script to generate an HTML document.
 
-## Task 4: Update Server Configuration
-Update server configuration to include a file server accessible at `your-ip/documents`.
+- Update server configuration to include a file server accessible at `your-ip/documents`.
 ```
 /var/lib/webgen
 ├── bin/
@@ -34,6 +30,34 @@ Update server configuration to include a file server accessible at `your-ip/docu
 
 # Table of Contents
 
+
+
+## Task 1: Create Two New Digital Ocean Droplets
+
+Create two new Digital Ocean droplets running Arch Linux with the tag "web". You will use this tag when you set up your load balancer.
+
+1. Navigate to the "Droplets" section in the control panel.
+2. Click on the "Create Droplet" button.
+3. Choose "Arch Linux" as the operating system.
+4. Select the droplet size based on your requirements (e.g., Standard, General Purpose).
+5. Make sure to choose the data center region of SFO3 (San Francisco Datacenter 3). 
+---
+![SFO3](images/SFO3.png)
+---
+
+6. Under "Authentication", select your preferred method (e.g., SSH keys).
+7. Add the tag "web" to the droplet.
+---
+
+![web-tag](images/web.png)
+---
+
+8. Repeat the above steps to create the second droplet.
+9. Verify that both droplets are running. To verify it should look like the image below with the green indictor meaning its active and the tag web being displayed
+---
+
+![verified-droplets](images/verified-droplets.png)
+---
 
 
 
