@@ -61,3 +61,28 @@ Create two new Digital Ocean droplets running Arch Linux with the tag "web". You
 
 
 
+## Task 2: Create a Load Balancer
+
+Create a load balancer to distribute traffic between the two servers created in Task 1. The load balancer should configured with the settings listed below.
+
+2. Navigate to the "Load Balancers" section in the control panel.
+3. Click on the "Create Load Balancer" button.
+4. Configure the load balancer with the following settings:
+    - **Region**: SFO3 (same as your servers)
+    - **VPC**: Default (same as your servers)
+    - **Type**: External (public)
+5. Under "Forwarding Rules", set the following to these, but they should already be the default settings.
+    - **Protocol**: HTTP
+    - **Port**: 80
+    - **Target Protocol**: HTTP
+    - **Target Port**: 80
+6. Under "Backend", use the "web" tag to load balance all servers with the "web" tag in the SFO3 region.
+---
+![load-balance-web-tag.png](images/load-balance-web-tag.png)
+---
+7. Click on the "Create Load Balancer" button to finalize the setup.
+8. Verify that the load balancer have been created. 
+
+> **Note**: The load balancer will show that the servers are down until you set up the NGINX servers within the new droplets.
+
+
