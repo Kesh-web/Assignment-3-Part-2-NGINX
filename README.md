@@ -86,3 +86,17 @@ Create a load balancer to distribute traffic between the two servers created in 
 > **Note**: The load balancer will show that the servers are down until you set up the NGINX servers within the new droplets.
 
 
+## Task 3: Clone the Updated Starter Code
+
+Clone the updated starter code from the repository. This repository contains an updated script that will generate an HTML document.
+
+1. SSH into one of your newly created droplets.
+
+3. Clone the repository using the following command:
+    ```sh
+    git clone https://git.sr.ht/~nathan_climbs/2420-as3-p2-start
+    ```
+4. Navigate into the cloned repository directory:
+    ```sh
+    cd 2420-as3-p2-start
+    ```
