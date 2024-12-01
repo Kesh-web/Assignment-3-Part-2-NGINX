@@ -88,15 +88,43 @@ Create a load balancer to distribute traffic between the two servers created in 
 
 ## Task 3: Clone the Updated Starter Code
 
-Clone the updated starter code from the repository. This repository contains an updated script that will generate an HTML document.
+[!IMPORTANT] Make sure to repeat the steps in Part 1 in these newly created droplets before continuing.
+
+Clone the updated starter code from the repository. This repository contains an updated script that will generate the updated HTML script.
 
 1. SSH into one of your newly created droplets.
 
-3. Clone the repository using the following command:
+2. Clone the repository using the following command:
     ```sh
     git clone https://git.sr.ht/~nathan_climbs/2420-as3-p2-start
     ```
-4. Navigate into the cloned repository directory:
+
+3. Move the `generate_index` script to the appropriate directory:
     ```sh
-    cd 2420-as3-p2-start
+    sudo mv 2420-as3-p2-start/generate_index /var/lib/webgen/bin/
     ```
+
+4. Set the necessary permissions for the `generate_index` script:
+    ```sh
+    sudo chmod +x /var/lib/webgen/bin/generate_index
+    ```
+
+5. Create the required directories:
+    ```sh
+    sudo mkdir -p /var/lib/webgen/documents
+    ```
+
+6. Create the required files:
+    ```sh
+    sudo touch /var/lib/webgen/documents/file-one /var/lib/webgen/documents/file-two
+    ```
+
+    ```sh
+    sudo touch /var/lib/webgen/HTML/index.html
+    ```
+
+7. Set the ownership for the directories and files:
+    ```sh
+    sudo chown -R webgen:webgen /var/lib/webgen
+    ```
+
