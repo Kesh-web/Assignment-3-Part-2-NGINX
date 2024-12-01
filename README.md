@@ -83,12 +83,12 @@ Create a load balancer to distribute traffic between the two servers created in 
 7. Click on the "Create Load Balancer" button to finalize the setup.
 8. Verify that the load balancer have been created. 
 
-> **Note**: The load balancer will show that the servers are down until you set up the NGINX servers within the new droplets.
+>[!NOTE] The load balancer will show that the servers are down until you set up the NGINX servers within the new droplets.
 
 
 ## Task 3: Clone the Updated Starter Code
 
-[!IMPORTANT] Make sure to repeat the steps in Part 1 in these newly created droplets before continuing.
+>[!IMPORTANT] Make sure to repeat the steps in Part 1 in these newly created droplets before continuing.
 
 Clone the updated starter code from the repository. This repository contains an updated script that will generate the updated HTML script.
 
@@ -128,3 +128,57 @@ Clone the updated starter code from the repository. This repository contains an 
     sudo chown -R webgen:webgen /var/lib/webgen
     ```
 
+
+    ## Task 4: Update NGINX Configuration
+
+    Update the NGINX configuration to include a new server block that serves the files from the `/var/lib/webgen/documents` directory.
+
+    1. SSH into each of your newly created droplets.
+
+    2. Open the NGINX configuration file in a text editor:
+        ```sh
+        sudo nvim /etc/nginx/sites-available/webgen.conf
+        ```
+
+    3. Add the following server block to the configuration file:
+          ```sh
+          server {
+                listen 80;
+                listen [::]:80;
+
+                server_name localhost.webgen;
+
+                location / {
+                     root /var/lib/webgen/HTML;
+                     index index.html;
+                     try_files $uri $uri/ =404;
+                }
+
+                # Handle /documents/ requests
+                location /documents {
+                     alias /var/lib/webgen/documents/;
+                     autoindex on;
+                     autoindex_exact_size off;
+                     autoindex_localtime on;
+                     try_files $uri $uri/ =404;
+                }
+          }
+        ```
+       Here's a breakdown of what each part does:
+
+        - `location /documents { ... }`: Defines a location block for the `/documents` URL path.
+            - `alias /var/lib/webgen/documents/;`: Sets the directory to serve files from for requests to `/documents`.
+            - `autoindex on;`: Enables directory listing if no index file is found.
+            - `autoindex_exact_size off;`: Displays file sizes in a human-readable format.
+            - `autoindex_localtime on;`: Displays file timestamps in the local time zone.
+            - `try_files $uri $uri/ =404;`: Tries to serve the requested URI as a file, then as a directory, and returns a 404 error if neither is found.
+
+    5. Test the NGINX configuration for syntax errors:
+        ```sh
+        sudo nginx -t
+        ```
+
+    6. Reload NGINX in both droplets to apply the changes:
+        ```sh
+        sudo systemctl reload nginx
+        ```
