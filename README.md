@@ -140,7 +140,7 @@ Clone the updated starter code from the repository. This repository contains an 
 
     ## Task 4: Update NGINX Configuration
 
-    Update the NGINX configuration to include a new server block that serves the files from the `/var/lib/webgen/documents` directory.
+    Update the NGINX configuration to include a new server block that hosts the files from the `/var/lib/webgen/documents` directory.
 
     1. Open the NGINX configuration file in a text editor:
         ```sh
@@ -203,7 +203,7 @@ Clone the updated starter code from the repository. This repository contains an 
 
         2. Open a web browser and navigate to the load balancer IP address:
             ```sh
-            http://load-balancer-ip>
+            http://load-balancer-ip
             ```
 
         3. Verify that the `index.html` page is displayed correctly. It should look like this:
@@ -223,7 +223,7 @@ Clone the updated starter code from the repository. This repository contains an 
 
 ## Congratulations
 
-If you see both the `index.html` page and the directory listing for `/documents`, your load balancer is successfully working. Your web application is now highly available and can serve documents from both servers.
+If you see both the `index.html` page and the directory listing for `/documents`, your load balancer is successfully working. Your web application is now available and can host the files.
 
 
 ## References
