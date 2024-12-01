@@ -29,6 +29,15 @@ In this assignment, you will extend your previous NGINX setup by configuring two
 
 
 # Table of Contents
+- [Introduction](#introduction)
+- [Table of Contents](#table-of-contents)
+- [Task 1: Create Two New Digital Ocean Droplets](#task-1-create-two-new-digital-ocean-droplets)
+- [Task 2: Create a Load Balancer](#task-2-create-a-load-balancer)
+- [Task 3: Clone the Updated Starter Code](#task-3-clone-the-updated-starter-code)
+- [Task 4: Update NGINX Configuration](#task-4-update-nginx-configuration)
+- [Task 5: Verify the New Droplets Page](#task-5-verify-the-new-droplets-page)
+- [Congratulations](#congratulations)
+
 
 
 
@@ -180,3 +189,43 @@ Clone the updated starter code from the repository. This repository contains an 
         ```sh
         sudo systemctl reload nginx
         ```
+
+        ## Task 5: Verify the New Droplets Page
+
+        After setting up the NGINX configuration and reloading the service, you need to verify that the new droplets are serving the files correctly and that the load balancer is distributing traffic as expected.
+
+        ![load-balancer-ip](images/load-balancer-ip.png)
+
+
+        1. Find the load balancer IP address from the Digital Ocean control panel:
+            - Navigate to the "Load Balancers" section.
+            - Locate your load balancer and copy its public IP address.
+
+        2. Open a web browser and navigate to the load balancer IP address:
+            ```sh
+            http://load-balancer-ip>
+            ```
+
+        3. Verify that the `index.html` page is displayed correctly. It should look like this:
+
+        ![load-balance](images/load-balancer-sucess.png)
+
+        4. Navigate to the documents directory to ensure the files are being served:
+            ```sh
+            http://<load-balancer-ip>/documents
+            ```
+
+        5. Verify that the directory listing is displayed and that `file-one` and `file-two` are accessible. It should look like this: 
+        
+     ![load-balancer-directory](images/load-balancer-directory.png)
+
+
+
+## Congratulations
+
+If you see both the `index.html` page and the directory listing for `/documents`, your load balancer is successfully working. Your web application is now highly available and can serve documents from both servers.
+
+
+## References
+
+ 
