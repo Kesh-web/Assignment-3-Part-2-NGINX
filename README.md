@@ -133,14 +133,12 @@ Clone the updated starter code from the repository. This repository contains an 
 
     Update the NGINX configuration to include a new server block that serves the files from the `/var/lib/webgen/documents` directory.
 
-    1. SSH into each of your newly created droplets.
-
-    2. Open the NGINX configuration file in a text editor:
+    1. Open the NGINX configuration file in a text editor:
         ```sh
         sudo nvim /etc/nginx/sites-available/webgen.conf
         ```
 
-    3. Add the following server block to the configuration file:
+    2. Add the following server block to the configuration file:
           ```sh
           server {
                 listen 80;
@@ -173,12 +171,12 @@ Clone the updated starter code from the repository. This repository contains an 
             - `autoindex_localtime on;`: Displays file timestamps in the local time zone.
             - `try_files $uri $uri/ =404;`: Tries to serve the requested URI as a file, then as a directory, and returns a 404 error if neither is found.
 
-    5. Test the NGINX configuration for syntax errors:
+    3. Test the NGINX configuration for syntax errors:
         ```sh
         sudo nginx -t
         ```
 
-    6. Reload NGINX in both droplets to apply the changes:
+    4. Reload NGINX in both droplets to apply the changes:
         ```sh
         sudo systemctl reload nginx
         ```
