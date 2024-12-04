@@ -234,5 +234,3 @@ If you see both the `index.html` page and the directory listing for `/documents`
 - [NGINX](https://wiki.archlinux.org/title/Nginx)
 - [Users and Groups](https://wiki.archlinux.org/title/Users_and_groups)
 - [Week Thirteen Notes](https://gitlab.com/cit2420/2420-notes-f24/-/blob/main/2420-notes/week-thirteen.md)
-
-sdsd
