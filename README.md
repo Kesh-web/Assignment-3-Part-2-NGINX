@@ -226,6 +226,13 @@ Clone the updated starter code from the repository. This repository contains an 
 If you see both the `index.html` page and the directory listing for `/documents`, your load balancer is successfully working. Your web application is now available and can host the files.
 
 
+
 ## References
 
- 
+- [Digital Ocean Load Balancers Documentation](https://docs.digitalocean.com/products/networking/load-balancers/)
+- [Uncomplicated Firewall](https://wiki.archlinux.org/title/Uncomplicated_Firewall)
+- [NGINX](https://wiki.archlinux.org/title/Nginx)
+- [Users and Groups](https://wiki.archlinux.org/title/Users_and_groups)
+- [Week Thirteen Notes](https://gitlab.com/cit2420/2420-notes-f24/-/blob/main/2420-notes/week-thirteen.md)
+
+sdsd
